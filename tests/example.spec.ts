@@ -17,13 +17,17 @@ test('leyendo peliculas', async ({ page }) => {
   }
   // cargamos capturamos la pantalla
   await page.screenshot({ path: `cinecenter2.png` });
-  // obtenemos el compoentne span dodne esta el combobox de sucursales con clase
-  const sucursal = await page.$('[class="e-ddl e-lib e-input-group e-control-container e-control-wrapper ddlSucursales e-valid-input"]');
-  // si el componente existe
-  if (sucursal) {
-    await sucursal.click();
-    await page.waitForTimeout(2000);
+
+  const dropdown = page.locator('span[class="e-ddl e-lib e-input-group e-control-container e-control-wrapper background e-valid-input"]');
+  if (dropdown) {
+    console.log('dropdown encontrado', dropdown.innerHTML);
+
+  } else {
+    console.log('dropdown no encontrado');
   }
+  await page.waitForTimeout(2000);
+  // cargamos capturamos la pantalla
   await page.screenshot({ path: `cinecenter3.png` });
+
 
 });
