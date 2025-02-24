@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test('leyendo peliculas', async ({ page }) => {
   await page.goto('https://cinecenter.com.bo/');
   // espero a que cargue 20 segundos la pagina
-  await page.waitForTimeout(20000);
+  await page.waitForTimeout(5000);
   // guardo una captura 
   await page.screenshot({ path: `cinecenter.png` });
   // obetenemos el modal que tiene la clase modal-content
