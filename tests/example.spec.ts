@@ -17,4 +17,13 @@ test('leyendo peliculas', async ({ page }) => {
   }
   // cargamos capturamos la pantalla
   await page.screenshot({ path: `cinecenter2.png` });
+  // obtenemos el compoentne span dodne esta el combobox de sucursales con clase
+  const sucursal = await page.$('.e-input-value');
+  // si el componente existe
+  if (sucursal) {
+    await sucursal.click();
+    await page.waitForTimeout(2000);
+  }
+  await page.screenshot({ path: `cinecenter3.png` });
+
 });
